@@ -1,138 +1,138 @@
 # Operator Development Guide Reference
 
-* [1: Introduction](#h.yssdo9kv6mwy)
+* 1: Introduction
 
-* [2: Operators](#h.16jw6hf6ngpc)
+* 2: Operators
 
- * [API](#h.m7doof96o3bb)
+ * API
 
-   * [Interface - Component](#h.nwxmeu678nyw)
+   * Interface - Component
 
-   * [Interface Operator](#h.rn6m1arnmzo)
+   * Interface Operator
 
-   * [Class DefaultInputPort](#h.yszaztcm5qzi)
+   * Class DefaultInputPort
 
-   * [Class DefaultOutputPort](#h.ocpdlk2ngmyp)
+   * Class DefaultOutputPort
 
-   * [Interface InputPort](#h.uglqof11gg)
+   * Interface InputPort
 
-   * [Interface OutputPort](#h.atsrwivo3x1h)
+   * Interface OutputPort
 
-   * [Interface ActivationListener](#h.55s1gam7e2v4)
+   * Interface ActivationListener
 
-   * [Interface CheckpointListener](#h.wmiyeaomlzng)
+   * Interface CheckpointListener
 
-   * [Interface IdleTimeHandeler](#h.6uwj4vf7ym3u)
+   * Interface IdleTimeHandeler
 
- * [Ports](#h.igi1no3d4qvp)
+ * Ports
 
-   * [Examples](#h.10u54qn03sco)
+   * Examples
 
-     * [Input Port](#h.7gf83hqftvft)
+     * Input Port
 
-     * [Output Port](#h.3r2ilo8e2hsz)
+     * Output Port
 
-     * [Error Port](#h.60cllhorwly1)
+     * Error Port
 
-   * [Unifiers](#h.586xsddq2owc)
+   * Unifiers
 
-   * [Port Declarations](#h.5gl2xetcvri5)
+   * Port Declarations
 
- * [Operator Properties](#h.pt6pdkktig7j)
+ * Operator Properties
 
- * [Operator Attributes](#h.h0jdl6pakm30)
+ * Operator Attributes
 
- * [Templates](#h.cswgf5822sqz)
+ * Templates
 
- * [Validations](#h.pwfudbn737tu)
+ * Validations
 
-   * [Compile Time Validations](#h.dak6692jedvb)
+   * Compile Time Validations
 
-   * [Initialization/Instantiation Time](#h.xx4jxlwykn44)
+   * Initialization/Instantiation Time
 
-   * [Runtime Validations](#h.2f2zz3o652th)
+   * Runtime Validations
 
- * [Transient Fields](#h.z5ftwcfcyygn)
+ * Transient Fields
 
- * [Stateless vs Stateful](#h.iacnawuhps1s)
+ * Stateless vs Stateful
 
- * [Single vs Multiple Inputs](#h.b9jasacfe1cj)
+ * Single vs Multiple Inputs
 
- * [Hierarchical Operators](#h.shbueowcehhw)
+ * Hierarchical Operators
 
- * [Macros](#h.p89uf5jehhbj)
+ * Macros
 
-* [3: Computation Model](#h.xesjjj48mla7)
+* 3: Computation Model
 
- * [Single Dedicated Thread Execution](#h.6qgp07nvuq8)
+ * Single Dedicated Thread Execution
 
- * [Mutability of tuples](#h.ozr086wu7nhj)
+ * Mutability of tuples
 
- * [Passthrough vs End of Window tuples](#h.esx3kmkailw7)
+ * Passthrough vs End of Window tuples
 
- * [Streaming Window vs Application Window](#h.m5eqrg4pgv0)
+ * Streaming Window vs Application Window
 
-* [4: Commonly Used Operators](#h.c03ipc14lxgd)
+* 4: Commonly Used Operators
 
- * [Window Generator](#h.o3v4mn7rwg7i)
+ * Window Generator
 
- * [Default Unifier](#h.i7wst6vp6k1w)
+ * Default Unifier
 
- * [Sinks](#h.fc9jm5ziec1s)
+ * Sinks
 
- * [InputOperator](#h.65hdk4my2igg)
+ * InputOperator
 
- * [Apache Apex Malhar Library Templates](#h.os5a5ukotd9r)
+ * Apache Apex Malhar Library Templates
 
- * [Database/Window Synchronization Operator](#h.kawnhfokqjfj)
+ * Database/Window Synchronization Operator
 
-* [5: Fault Tolerance](#h.o8xlrmutx8fy)
+* 5: Fault Tolerance
 
- * [Checkpointing](#h.1z8mrl4uncds)
+ * Checkpointing
 
- * [Recovery Mechanisms](#h.ur7toakqgpan)
+ * Recovery Mechanisms
 
-   * [At-Least-Once](#h.xk4ykasjt4vg)
+   * At-Least-Once
 
-   * [At-Most-Once](#h.hdpq7tt1h15y)
+   * At-Most-Once
 
-   * [Exactly-Once](#h.h92f9r4toivh)
+   * Exactly-Once
 
-* [6: Partitioning](#h.2y03wskqsr4m)
+* 6: Partitioning
 
- * [Static vs Dynamic](#h.ogr5ucv0rxpp)
+ * Static vs Dynamic
 
- * [Partitioner](#h.r1fyf5mlcij1)
+ * Partitioner
 
- * [Multiple Ports](#h.dcvgpbxmmer)
+ * Multiple Ports
 
- * [StreamCodec](#h.js54o2lyfpj1)
+ * StreamCodec
 
- * [Unifier](#h.fyluo0eql1dz)
+ * Unifier
 
-* [7: Library](#h.jethc23rf4ts)
+* 7: Library
 
- * [Common Operator Functions](#h.7ed0gketejes)
+ * Common Operator Functions
 
-   * [Filtering-Selecting-Map](#h.93b3m44g1evi)
+   * Filtering-Selecting-Map
 
-   * [Aggregations](#h.brjaezk4lgan)
+   * Aggregations
 
-   * [Joins](#h.fh4dbabvcfy3)
+   * Joins
 
-   * [Input Adapters](#h.bn97sa2ba4ad)
+   * Input Adapters
 
-   * [Output Adapters](#h.xi7fieotjusg)
+   * Output Adapters
 
-   * [Event Generators](#h.w9l2vpzdilyu)
+   * Event Generators
 
-   * [Stream Manipulation](#h.v720enpn59to)
+   * Stream Manipulation
 
-   * [User Defined](#h.5md097ehl9u3)
+   * User Defined
 
- * [Sample Code](#h.dcslidw22r)
+ * Sample Code
 
- * [Latency and Throughput](#h.p8jkb0f00f8w)
+ * Latency and Throughput
 
 
 1: Introduction
@@ -390,7 +390,7 @@ and output ports.
     generates begin\_window and end\_window tuples periodically. Since
     the STRAM initializes all window generators, they all start with
     same window id and the application is synchronized on these
-    windows.<sup>[[a]](#cmnt1)</sup>
+    windows.
 
 Input Operators have two modes, namely Synchronous and Asynchronous
 
@@ -432,7 +432,7 @@ Input Operators have two modes, namely Synchronous and Asynchronous
     have no input or output ports. An application with such an operator
     will not have any other operator in the DAG. Such an operator
     effectively acts as both an Input Adapter as well as an Output
-    Adapter.<sup>[[b]](#cmnt2)</sup>
+    Adapter.
 
 Both output adapters and generic operators process tuples on the input
 port and look alike, the difference is that a general operator emits
@@ -533,11 +533,11 @@ validating them. Annotations are declared with
 ```@InputPortFieldAnnotation()``` for input ports and
 ```@OutputPortFieldAnnotation()``` for output ports. Currently the following
 annotations are supported on the ports
-```
--   name = “portname”
--   optional = true (or false)
--   error = true (or false)
-```
+
+-   ```name = “portname”```
+-   ```optional = true (or false)```
+-   ```error = true (or false)```
+
 Over time mode annotations would be added as per needs of our customers.
 
 The schema of the tuple emitted on a port is part of the port
@@ -576,7 +576,7 @@ changes to property values via setter functions. If a setter function is
 called during runtime, STRAM would call the setter function after
 checkpoint is loaded, so runtime changes are remembered irrespective of
 whether the checkpoint happened between property set and operator
-outage.<sup>[[c]](#cmnt3)</sup>
+outage.
 
 Operator Attributes
 -------------------
@@ -1679,9 +1679,9 @@ public interface Unifier < T > extends Operator
 
 When using a unifier that collects all the output tuples in one
 operator, users can get away from a sticky key
-partitioning<sup>[[p]](#cmnt16)</sup> scheme, as long as the the unifier
+partitioning scheme, as long as the the unifier
 can function within one Hadoop container (usually \~ 1GB
-RAM)<sup>[[q]](#cmnt17)</sup>, i.e. a single unifier object that has
+RAM), i.e. a single unifier object that has
 enough resources (CPU, RAM, and Network) to process the outputs of all
 the partitions. Combining the output of all partitions allows the basic
 partitioning to be done by round-robin without a sticky key, and thus
@@ -1842,7 +1842,7 @@ Sample Code
 Code samples are included in the samples project. We will continually
 add examples of various operator templates to this package. This package
 is part of the open source Malhar project, and users are encouraged to
-add their examples to enable community reuse and verification.
+add their examples to enable community reuse and verification. Here is the github link to the project: https://github.com/apache/incubator-apex-malhar/tree/master/samples.
 
 Latency and Throughput
 ----------------------
